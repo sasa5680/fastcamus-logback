@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+<!--    <include resource="logback-spring-local.xml"/>-->
+<!--   운영 환경에 따라 다른 xml 파일을 사용한다.-->
+    <include resource="logback-spring-${spring.profiles.active}.xml"/>
+</configuration>
+
