@@ -55,10 +55,53 @@
         </encoder>
     </appender>
 
-    <root level="INFO">
-<!--        <appender-ref ref="REQUEST1" />-->
-<!--        <appender-ref ref="REQUEST2" />-->
-        <appender-ref ref="MDC" />
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/error.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>error</level> <!--에러만 받는다-->
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>  <!--Warn일 경우 error도 받는다. 따라서 맞는 패턴만 받아온다.-->
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${LOG_DIR}/archive/error.%d{yyyy-MM-dd}_%i.log
+            </fileNamePattern>
+            <maxFileSize>10KB</maxFileSize> <!-- 로그파일 최대 크기-->
+            <maxHistory>30</maxHistory> <!--로그파일 최대 보관주기 (단위 :일), 기간이 지나면 자동 삭제-->
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+                [ERROR] ${LOG_PATTERN}
+            </pattern>
+            <outputPatternAsHeader>true</outputPatternAsHeader>
+        </encoder>
+    </appender>
 
+    <appender name="QUERY" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/query.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>
+                logs/archive/query.%d{yyyy-MM-dd}_%i.log
+            </fileNamePattern>
+            <maxFileSize>10KB</maxFileSize> <!-- 로그파일 최대 크기-->
+            <maxHistory>30</maxHistory> <!--로그파일 최대 보관주기 (단위 :일), 기간이 지나면 자동 삭제-->
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+                [QUERY] ${LOG_PATTERN}
+            </pattern>
+            <outputPatternAsHeader>true</outputPatternAsHeader>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <!--        <appender-ref ref="REQUEST1" />-->
+        <!--        <appender-ref ref="REQUEST2" />-->
+<!--        <appender-ref ref="MDC"/>-->
+        <appender-ref ref="ERROR"/>
     </root>
+
+    <logger name="SQL_LOG1" level="INFO" additivit="false">
+        <appender-ref ref="QUERY"/>
+    </logger>
 </included>
