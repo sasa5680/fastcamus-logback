@@ -1,7 +1,8 @@
-#logback.classic pattern: [REQUEST2] LOG_PATTERN_IS_UNDEFINED
-[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED[REQUEST2] LOG_PATTERN_IS_UNDEFINED#logback.classic pattern: [REQUEST2] LOG_PATTERN_IS_UNDEFINED
-[REQUEST2] LOG_PATTERN_IS_UNDEFINEDjava.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
-ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find resource [logback-variables.prod].
+#logback.classic pattern: [REQUEST2] [%-5level] %d{yyyy-MM-dd HH:mm:ss} [%thread] [%logger{0}:%line] -%msg%n
+[REQUEST2] [ERROR] 2022-11-28 20:14:44 [main] [SpringApplication:821] -Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@5b07730f - There is no conversion class registered for conversion word [ㅜ]
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@5b07730f - [ㅜ] is not a valid conversion word
 	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:344)
 	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
 	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
@@ -22,37 +23,8 @@ ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find resour
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
 	at com.example.logback.LogBackApplication.main(LogBackApplication.java:10)
 Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
-ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find resource [logback-variables.prod].
-	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:179)
-	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:80)
-	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:60)
-	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:132)
-	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:329)
-	... 18 common frames omitted
-#logback.classic pattern: [REQUEST2] LOG_PATTERN_IS_UNDEFINED
-[REQUEST2] LOG_PATTERN_IS_UNDEFINEDjava.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
-ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find resource [logback-variable.prod].
-	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:344)
-	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
-	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
-	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:131)
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:85)
-	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:66)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
-	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:120)
-	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:114)
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:65)
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:343)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:301)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
-	at com.example.logback.LogBackApplication.main(LogBackApplication.java:10)
-Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
-ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find resource [logback-variable.prod].
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@5b07730f - There is no conversion class registered for conversion word [ㅜ]
+ERROR in ch.qos.logback.core.pattern.parser.Compiler@5b07730f - [ㅜ] is not a valid conversion word
 	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:179)
 	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:80)
 	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:60)
@@ -60,18 +32,3 @@ ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find resour
 	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:329)
 	... 18 common frames omitted
 #logback.classic pattern: [REQUEST2] [%-5level] %d{yyyy-MM-dd HH:mm:ss} [%thread] [%logger{0}:%line] -%msg%n
-[REQUEST2] [INFO ] 2022-11-27 16:17:04 [main] [LogBackApplication:55] -Starting LogBackApplication using Java 11.0.1 on DESKTOP-Q4LQPP6 with PID 14584 (D:\fast-campus\LogBack\build\classes\java\main started by USER in D:\fast-campus\LogBack)
-[REQUEST2] [INFO ] 2022-11-27 16:17:04 [main] [LogBackApplication:637] -The following 1 profile is active: "prod"
-[REQUEST2] [INFO ] 2022-11-27 16:17:05 [main] [TomcatWebServer:108] -Tomcat initialized with port(s): 8080 (http)
-[REQUEST2] [INFO ] 2022-11-27 16:17:05 [main] [StandardService:173] -Starting service [Tomcat]
-[REQUEST2] [INFO ] 2022-11-27 16:17:05 [main] [StandardEngine:173] -Starting Servlet engine: [Apache Tomcat/9.0.69]
-[REQUEST2] [INFO ] 2022-11-27 16:17:05 [main] [[/]:173] -Initializing Spring embedded WebApplicationContext
-[REQUEST2] [INFO ] 2022-11-27 16:17:05 [main] [ServletWebServerApplicationContext:292] -Root WebApplicationContext: initialization completed in 930 ms
-[REQUEST2] [INFO ] 2022-11-27 16:17:05 [main] [TomcatWebServer:220] -Tomcat started on port(s): 8080 (http) with context path ''
-[REQUEST2] [INFO ] 2022-11-27 16:17:05 [main] [LogBackApplication:61] -Started LogBackApplication in 1.769 seconds (JVM running for 3.637)
-[REQUEST2] [INFO ] 2022-11-27 16:17:07 [http-nio-8080-exec-1] [[/]:173] -Initializing Spring DispatcherServlet 'dispatcherServlet'
-[REQUEST2] [INFO ] 2022-11-27 16:17:07 [http-nio-8080-exec-1] [DispatcherServlet:525] -Initializing Servlet 'dispatcherServlet'
-[REQUEST2] [INFO ] 2022-11-27 16:17:07 [http-nio-8080-exec-1] [DispatcherServlet:547] -Completed initialization in 1 ms
-[REQUEST2] [INFO ] 2022-11-27 16:17:07 [http-nio-8080-exec-1] [DemoController:15] -log --> INFO
-[REQUEST2] [WARN ] 2022-11-27 16:17:07 [http-nio-8080-exec-1] [DemoController:16] -log --> WARN
-[REQUEST2] [ERROR] 2022-11-27 16:17:07 [http-nio-8080-exec-1] [DemoController:17] -log --> ERROR
